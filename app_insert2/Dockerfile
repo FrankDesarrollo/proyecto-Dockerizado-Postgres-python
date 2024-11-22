@@ -1,0 +1,14 @@
+# Imagen base de Python
+FROM python:3.10-slim
+
+# Establecer directorio de trabajo
+WORKDIR /app
+
+# Copiar el archivo de la aplicación
+COPY insert_vehicle_data.py /app
+
+# Instalar las dependencias necesarias
+RUN pip install psycopg2-binary
+
+# Comando para ejecutar el script al iniciar el contenedor
+CMD ["python", "insert_vehicle_data.py"]
